@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import ReduxPromise from 'redux-promise';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import NavBar from './components/Nav';
 import Posts from './components/Posts';
 import Author from './components/Author';
+import NewPost from './components/NewPost';
 
 import reducers from './reducers';
 
@@ -20,19 +22,21 @@ import './index.css';
   {id: 5, title: 'plan your week - fast', content: 'Aenean eget erat ut eros semper venenatis.',categories: ["self-improvement","work"]},
   {id: 6, title: 'say no to procrastination', content: 'Fusce pretium urna sit amet vulputate finibus.',categories: ["self-improvement"]}
 ];*/
-const App = () => {
-	return (
-		<div>
-			<NavBar />
-			<Posts />
-			<Author />
-		</div>
-	)
-}
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 ReactDOM.render(
 	<Provider store={createStoreWithMiddleware(reducers)}>
-		<App />
+		<BrowserRouter>
+			<div>
+			<NavBar />
+			<div className='col-md-8'>
+				<Switch>
+					<Route path='/posts/new' component={NewPost} />
+					<Route path='/' component={Posts} />
+				</Switch>
+			</div>
+			<Author />
+			</div>
+		</BrowserRouter>
 	</Provider>, 
 document.getElementById('root'));
 

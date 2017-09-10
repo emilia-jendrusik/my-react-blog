@@ -19,7 +19,7 @@ class Posts extends Component {
 			<Post postData={el} key={el.id} />
 		)
 		return (
-			<div className='col-md-8'>{postEls}</div>
+			<div>{postEls}</div>
 		)
 	}
 }
