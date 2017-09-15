@@ -1,37 +1,40 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import _ from 'lodash';
+import {fetchAuthor} from '../actions';
 
 class Author extends Component {
+  componentDidMount() {
+    this.props.fetchAuthor();
+  }
 	render () {
+    const propsEl = this.props.author;
+    if(_.isEmpty(propsEl)) {
+      return <div>Loading</div>
+    }
 		return (
       <div className='col-md-4'>
 			   <div className='author-section'>
               <div className='author-inner'>
                 <div className='user'>
-                  <div className='user1'>
-                  <img src='images/user.png' className='img-responsive' alt='' />
-                  </div>
+
                   <div className='user2'>
-                    <h4>russell crowe</h4>
+                    <h4>{propsEl.name}</h4>
+                    <p>{propsEl.description}</p>
                   <ul>
-                    <li><span className='glyphicon glyphicon-map-marker' aria-hidden='true'></span> wellington, New Zealand</li>
-                    <li><span className='glyphicon glyphicon-envelope' aria-hidden='true'></span><a href='mailto:example@mail.com'>example@mail.com</a> </li>
-                    <li><span className='glyphicon glyphicon-heart-empty' aria-hidden='true'></span>russell crowe </li>
+                    <li><span className='glyphicon glyphicon-globe' aria-hidden='true'></span><a href={propsEl.url}>{propsEl.url}</a></li>
                   </ul>
                   </div>
                   <div className='clearfix'></div>
                 </div>
                   <div className='flowers'>
-                    <div className='col-md-4 flower-grid'>
-                      <h5>10,113</h5>
-                      <p>followers</p>
+                    <div className='col-md-6 flower-grid'>
+                      <h5>{propsEl.pages.totalItems}</h5>
+                      <p>Pages</p>
                     </div>
-                    <div className='col-md-4 flower-grid'>
-                      <h5>947</h5>
-                      <p>following</p>
-                    </div>
-                    <div className='col-md-4 flower-grid'>
-                      <h5>630</h5>
-                      <p>listed</p>
+                    <div className='col-md-6 flower-grid'>
+                      <h5>{propsEl.posts.totalItems}</h5>
+                      <p>Posts</p>
                     </div>
                     <div className='clearfix'></div>
                   </div>
@@ -124,5 +127,8 @@ class Author extends Component {
 		)
 	}
 }
+function mapStateToProps(state) {
+  return {author: state.author}
+}
 
-export default Author;
+export default connect(mapStateToProps, {fetchAuthor})(Author);
