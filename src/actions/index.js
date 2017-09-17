@@ -25,7 +25,7 @@ export function fetchAuthor() {
 }
 
 export function sendPost(values) {
-	console.log(values);
+	//const data = axios.post(`${ROOT_URL}/posts?key=${KEY}`, values);
 	return {
 		type: SEND_POST,
 		payload: values

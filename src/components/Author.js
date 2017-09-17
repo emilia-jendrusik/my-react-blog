@@ -44,42 +44,13 @@ class Author extends Component {
                     <a href='#'><i className='icon1'></i></a>
                     <a href='#'><i className='icon2'></i></a>
                       </div>
-                      <div className='search1'>
-                      <form>
-                        <input type='serach' placeholder='search' />
-                        <input type='submit' value='' />
-                      </form>
-                    </div>
                     <div className='clearfix'></div>
-                  </div>
-
-                  <div className='contact'>
-                    <h4>contact form</h4>
-                    <form>
-                      <input type='text' placeholder='example@mail.com' />
-                      <input type='text' className='sub' placeholder='subject' />
-                      <textarea placeholder='message'></textarea>
-                    </form>
-                    <div className='enviar'>
-                    <form>
-                      <div className='contact-check'>
-                        <p><input type='checkbox' checked='' />save a copy</p>
-                      </div>
-                      <div className='contact-enviar'>
-                        <input type='submit' value='Send' />
-                      </div>
-                    </form>
-                    <div className='clearfix'> </div>
-                    </div>
                   </div>
                   <div className='news-grids'>
                 <div className='col-md-12 new-grid'>
                   <div className='news'>
                     <div className='new1'>
-                      <h4>news</h4>
-                    </div>
-                    <div className='new2'>
-                      <a href='#'>view all</a>
+                      <h4>Newest Posts</h4>
                     </div>
                     <div className='clearfix'></div>
                   </div>

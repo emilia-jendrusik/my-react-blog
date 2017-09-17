@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {sendPost} from '../actions';
 
@@ -19,10 +20,13 @@ class NewPost extends Component {
 		const {handleSubmit} = this.props;
 		return(
 			<form id='NewPost' onSubmit={handleSubmit(this.submitForm.bind(this))}>
+				<div className='well'>
 				<Field name='title' label='Title' type='input' component={this.renderField} />
 				<Field name='content' label='Content' type='textarea' component={this.renderField} />
 				<Field name='labels' label='Labels' type='input' component={this.renderField} />
 				<button className='btn btn-primary' type='submit'>Submit post</button>
+				<Link className='btn btn-default' to='/'>Cancel</Link>
+				</div>
 			</form>
 		)
 	}

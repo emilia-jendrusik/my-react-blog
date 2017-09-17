@@ -6,4 +6,20 @@ body {
 .navbar-collapse .btn-primary {
   margin-top: 8px;
 }
+.well {
+	background-color: #c7c7c7;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+#NewPost {
+	width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+#NewPost textarea {
+	height: 200px;
+}
+#NewPost button[type='submit'] {
+	margin-right: 15px;
+}
 

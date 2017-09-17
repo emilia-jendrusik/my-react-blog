@@ -34,7 +34,7 @@ class NavBar extends Component {
 			        <div className='form-group'>
 			          <input type='text' className='form-control' placeholder='Search' />
 			        </div>
-			        <button type='submit' className='btn btn-default'>Submit</button>
+			        <button type='submit' className='btn btn-default'>Search</button>
 			      </form>
 			      <Link to='/posts/new' className='btn btn-primary'>Add new post</Link>
 			      </div>
